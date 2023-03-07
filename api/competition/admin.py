@@ -5,5 +5,7 @@ from .models import *
 admin.site.register(Team)
 admin.site.register(Brolympics)
 admin.site.register(Event)
+admin.site.register(EventTeamRanking_H2H)
+admin.site.register(EventTeamRanking_Score)
 admin.site.register(Competitions_H2H)
 admin.site.register(Competitions_Score)

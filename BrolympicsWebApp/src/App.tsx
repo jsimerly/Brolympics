@@ -5,6 +5,7 @@ import { allTeams, allEvents, allCompetitions } from "./api/temp"
 
 
 
+
 const toolOptions: ToolOptionType[] = [
   {
     name: 'Competitions', 

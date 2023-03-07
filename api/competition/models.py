@@ -30,10 +30,10 @@ class Team(models.Model):
 
     score = models.PositiveIntegerField(default=0)
 
-    wins =models.PositiveIntegerField(default=0)
+    wins = models.PositiveIntegerField(default=0)
     losses = models.PositiveIntegerField(default=0)
     ties = models.PositiveIntegerField(default=0)
-    
+
     win_percentage = models.FloatField(default=0)
 
     ranking = models.PositiveIntegerField(default=1)

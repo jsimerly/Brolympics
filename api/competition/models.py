@@ -5,14 +5,14 @@ from django.utils import timezone
 
 # Models
 class Brolympics(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
 
     year = models.DateField(default=timezone.now)
     completed = models.BooleanField(default=False)
     #add an account owner at some point
 
 class Team(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
 
     name = models.CharField(max_length=60)
 
@@ -46,7 +46,7 @@ EVENT_CHOICES = (
     ('S', 'score'),
 )
 class Event(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
 
     brolympic = models.ForeignKey(
         Brolympics, 
@@ -63,7 +63,7 @@ class Event(models.Model):
 
     
 class EventTeamRanking_H2H(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
     
     event = models.ForeignKey(
         Event, 
@@ -89,7 +89,7 @@ class EventTeamRanking_H2H(models.Model):
         return str(self.rank) + ") " +  self.team.name + " - " + self.event.name
 
 class EventTeamRanking_Score(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
 
     event = models.ForeignKey(
         Event, 
@@ -112,7 +112,7 @@ class EventTeamRanking_Score(models.Model):
         return str(self.rank) + ") " +  self.team.name + " - " + self.event.name
 
 class Competitions_H2H(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
 
     event = models.ForeignKey(
         Event, 
@@ -149,7 +149,7 @@ class Competitions_H2H(models.Model):
         return self.event.name + " - " + self.team_1.name + ': ' + str(self.team_1_score) + ' v ' + self.team_2.name + ': ' + str(self.team_2_score)
 
 class Competitions_Score(models.Model):
-    uuid = models.UUIDField(default=uuid4)
+    uuid = models.UUIDField(default=uuid4, editable=False)
 
     event = models.ForeignKey(
         Event, 
